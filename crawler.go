@@ -179,8 +179,8 @@ func (c *Crawler) extract(token html.Token) (*url.URL, error) {
 			}
 			if !URL.IsAbs() {
 				URL = c.URL.ResolveReference(URL)
-				return URL, nil
 			}
+			return URL, nil
 		}
 	}
 	return nil, errors.New("URL not found")
