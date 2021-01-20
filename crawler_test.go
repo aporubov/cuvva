@@ -6,11 +6,8 @@ import (
 )
 
 func TestCrawl(t *testing.T) {
-	URL, err := url.Parse("https://www.cuvva.com")
-	if err != nil {
-		return
-	}
-	crawler := NewCrawler(URL)
-	crawler.Crawl()
+	URL, _ := url.Parse("https://www.cuvva.com")
+	crawler := NewCrawler()
+	crawler.Crawl(URL)
 	crawler.Print()
 }

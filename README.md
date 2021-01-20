@@ -36,12 +36,9 @@ Construct the crawler providing the entry URL, then invoke the
 pretty-print the generated sitemap, for example:
 
 ```go
-URL, err := url.Parse("https://www.cuvva.com")
-if err != nil {
-    return
-}
-crawler := cuvva.NewCrawler(URL)
-crawler.Crawl()
+URL, _ := url.Parse("https://www.cuvva.com")
+crawler := cuvva.NewCrawler()
+crawler.Crawl(URL)
 crawler.Print()
 ```
 

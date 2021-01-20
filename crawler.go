@@ -34,18 +34,15 @@ type Crawler struct {
 }
 
 // NewCrawler instantiates a new Crawler
-func NewCrawler(URL *url.URL) *Crawler {
-	return &Crawler{
-		httpClient: &http.Client{Timeout: time.Minute},
-		URL:        URL,
-		resources:  make(map[string]*Resource),
-	}
+func NewCrawler() *Crawler {
+	return &Crawler{httpClient: &http.Client{Timeout: time.Minute}}
 }
 
 // Crawl performs the crawling
-func (c *Crawler) Crawl() {
+func (c *Crawler) Crawl(URL *url.URL) {
+	c.URL = URL
 	c.resources = make(map[string]*Resource)
-	c.entry = c.process(c.URL)
+	c.entry = c.process(URL)
 }
 
 // Print prints generated sitemap
